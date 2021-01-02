@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>gifOS - Gifs Gifs Gifs!</title>
+		<link href="css/ligth.css" id="mainstyle" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	</head>
+	<body id="dd" >
+
+		<header id="h">
+			<div class="barra"></div>
+
+			<nav class="navbar conteiner" id="contenedor">
+				<img src="assets/logo-desktop-.svg" alt="logo" class="logo" id="logo"/>
+				<img src="assets/logo-mobile-modo-noct1.svg" alt="logo" class="logo" id="logo1"/>
+
+				<input type="checkbox" name="button-flag" value="flag" id="flag">
+				<span class="burguer"></span>
+
+				<ul class="menu">
+					<li><a id="dark/ligth_theme" class="opcion" onclick="cambiar_claro_oscuro()"></a></li>
+					<li><a class="opcion" href="#" id="BtnFavs" onclick="favorito()">FAVORITOS</a></li>
+					<li><a id="btn-my-gifs" class="opcion" href="#" onclick="miGifos()">MIS GIFOS</a></li>
+					<li><a href="#" class="circulo" id="btn-create-gif"><img src="assets/button-crear-gifo.svg" alt="Crear gifo" class="normal" id="normal"></a></li>
+				</ul>
+			</nav>
+	
+
+		</header>
+
+		<main >
+			<section class="search hidden" id="search-section">
+				<h1>Inspirate, busca, guarda y crea los mejores <span style="color:#50E3C2;"> GIFOS</span></h1>
+				
+				<div class="search__box">
+					<img src="assets/ilustra_header.svg" alt="Saludos" id="homeimage">
+					<div class="search__box__form">
+						
+						
+						<div class="search__box__form__bar-container" id="box-form">
+							<div id="boxSearch">
+								<input 
+								class="input-bar input-bar--lg"
+								type="search"
+								id="search-bar"
+								aria-label="Barra de búsqueda para gifs e imágenes"
+								placeholder="Busca GIFOS y más"
+								autocomplete="off"
+							/>
+							<button type="submit" id="search-button" disabled class="btn btn--primary submit">
+								<img src="assets/icon-search.svg" id="bixs" alt="Búsqueda" class="searchIcon">
+								<img src="assets/icon-search-mod-noc.svg" id="bixs2" alt="Búsqueda" class="searchIcon">
+							</button>
+						</div>
+							<div class="search__box__suggestions hidden" id="search-suggestions"></div>
+						</div>
+					</div>	
+				</div>
+			</section>
+			
+		
+
+			<!--Seccion Trending Tags--> 
+			<section class="tagss" id="trendtags"> 
+			<h3 class="titletrend">Trending:</h3>
+			<p class="TTtrending_tags"><span class="trending_tag">Vacio</span></p></section>
+			
+			<!--Maximizar-->
+			<section class="maximiza hidden">
+				<div class="close-container">
+					<img src="assets/close.svg" alt="Cerrar" class="closeup">
+				</div>
+				<img src="https://via.placeholder.com/150" alt="GIFO PLACEHOLDER" class="gifo">
+				
+				<div class="info">
+					<div class="stat">
+						<h6 class="username">${username}</h6>
+						<p class="title">${title}</p>
+					</div>
+					<div class="btnss">
+						<img src="assets/icon-fav.svg" class="favz" alt="Guardar Gif">
+						<img src="assets/icon-download.svg" class="downloadz" alt="Descargar Gif">
+					</div>
+				</div>
+			</section>
+			
+			<!--Seccion Favoritos-->
+			<section class="favs hidden" id="favos">
+				<img src="assets/icon-favoritos.svg" alt="Favoritos">
+				<h4>Favoritos</h4>
+			</section>
+			
+			<!--Results-->
+			<section class="search_results hidden">
+				<hr>
+				<h3  id="searchtitle">Vacio</h3>
+				<div id="spaceal"></div>
+			</section>
+			
+			<!--Seccion Mis Gifos-->
+			<section class="my-gifs hidden" id="my-gifs-section">
+				<img src="assets/icon-mis-gifos.svg" alt="agrega tu 1er gifo" class="k1"/>
+				<h2 class="sectionTitle">Mis guifos</h2>
+
+				<div id="bigs" class="maximiza hidden ">
+					<div class="close-container">
+						<img src="assets/close.svg" alt="Cerrar" class="closeup" id="closeup">
+					</div>
+					<img src="https://via.placeholder.com/150" alt="GIFO PLACEHOLDER" class="gifo">
+					
+					<div class="info">
+						<div class="stat">
+							<h6 class="step">Anonimo <br> Sin título</h6>
+						</div>
+						<div class="btnss">
+							<img src="assets/icon-fav.svg" class="favz" alt="Guardar Gif">
+							<img src="assets/icon-download.svg" class="downloadz" alt="Descargar Gif">
+						</div>
+					</div>
+
+				</div>
+
+
+				<div id="out">
+					<img src="assets/icon-mis-gifos-sin-contenido.svg" alt="mis gifos vacio">
+					<p class="empty1">¡Anímate a crear tu primer GIFO!</p>
+				</div>
+				<div class="gif-grid--large" id="my-gifs-grid"></div>
+			</section>
+			
+			<!--Seccion Trends-->
+			<section class="trending_gifos" id="trends-section">
+				<h2 class="trending_gifos_h2">Trending GIFOS</h2>
+				<p class="trending_gifos_p">Mira los últimos GIFO de nuestra comunidad.</p>
+
+				<div class="trending_gifos_arrow_container">
+
+					<img src="assets/button-slider-left.svg" alt="Desliza a la izquierda gifos"
+					class="trending_gifos_arrow_container_button" id="left">
+			
+					<div class="trending_gifos_gifos_container"></div>
+
+					<img src="assets/Button-Slider-right.svg" alt="Desliza a la derecha gifos"
+					class="trending_gifos_arrow_container_button" id="right">
+				</div>
+			</section>
+
+			
+			<!--Seccion Crear Gifo-->
+			<section class="create-gif-section hidden" id="create-gif-section">
+				<div id="cam">
+					<img src="assets/camara.svg" alt="camara" id="camara"/>
+					<img src="assets/camara-modo-noc.svg" alt="camara" id="camara2"/>
+
+					<img src="assets/path2.svg" alt="camara" id="luz"/>
+				</div>
+				
+				<div>
+					<div class="window-element window-element--md" id="stage1">
+						
+						<div class="window-element__content">
+							
+							<div>
+								<div class="window-element__content--split">
+									<div class="window-element__content--split__text">
+										<h3 class="title-create">Aquí podrás <br> crear tus propios <span style="color:#50E3C2;"> GIFOS</span></h3>
+										<p class="p-create">
+											¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)
+										</p>
+										
+									</div>
+								</div>
+								<div class="create-numbers">
+									<p class="a1">1</p>
+									<p class="a1">2</p>
+									<p class="a1">3</p>
+								</div>
+								<div class="barr"></div>
+								<div class="btn-start">
+									<button class="btn btn--primary" id="create-gif-continue">
+										<span class="general-boton">COMENZAR</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="window-element window-element--lg hidden" id="stage2">
+						<div id="space">
+							<div class="window-element__content--split">
+								<div class="space">
+									<h3 class="title-create" id="create-gif-section-header">
+										¿Nos das acceso<br> a tu cámara?
+									</h3>
+									<p class="p-create">
+										El acceso a tu camara será válido sólo<br> por el tiempo en el que estés creando el GIFO.
+									</p>
+								</div>
+							</div>
+							<div class="create-numbers">
+								<p class="b1">1</p>
+								<p class="a1">2</p>
+								<p class="a1">3</p>
+							</div>
+							<div class="barr"></div> 
+						</div>
+						<div class="window-element__content1" id="video">
+							<div class="video-caja" id="video-caja">
+								<div id="colour"><video class="window-element__content__video-element" id="video-box"></video></div>
+								<div id="box-oculta">
+									<img src="assets/loader.svg" alt="cargando" class="load"/>
+									<div class="subiendo">Estamos subiedo tu GIFO</div>
+								</div>
+								<div id="box-oculta2">
+									<img src="assets/ok.svg" alt="ok" class="load"/>
+									<div class="subiendo">GIFO subido con éxito</div>
+								</div>
+								<div id="box-oculta3">
+									<button class="empty" id="download-gif">
+										<span><img src="assets/icon-download.svg" alt="Descargar" class="rad tam"/></span>
+									</button>
+									<button class="empty" id="copy-link">
+										<span><img src="assets/icon-link-normal.svg" alt="Copiar enlace" class="rad tam"/></span>
+									</button>
+								</div>
+							</div>
+							<div id="fin-box">
+								<div id="create-numbers2">
+									<p class="a1">1</p>
+									<p class="b1">2</p>
+									<p class="a1">3</p>
+								</div>
+								<div id="create-numbers3">
+									<p class="a1">1</p>
+									<p class="a1">2</p>
+									<p class="b1">3</p>
+								</div>
+								<div class="input-bar input-bar--sm gif-creation--stage3__timer" id="timer"></div>
+								<button class="btn btn--secondary" id="redo-recording">
+									<span >REPETIR CAPTURA</span>
+								</button>
+							</div>
+							<div id="barrs"></div>
+							<div class="window-element__content__options">
+								<button class="btn btn--primary btn--icon-before icon-camera" id="start-recording">
+									<span class="general-boton">GRABAR</span>
+								</button>
+								<div id="bot-box">
+									<button class="btn btn--recording btn--icon-before icon-recording hidden" id="stop-recording">
+										<span class="general-boton">FINALIZAR</span>
+									</button>
+									<div class="hidden gif-creation--stage4" id="stage4">
+										
+										<button class="btn btn--primary gif-upload" id="upload-gif" onclick="change()">
+											<span class="general-boton">SUBIR GIFO</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<div class="window-element window-element--md hidden" id="stage6">
+						<div class="window-element__header-container">
+							<h3 class="window-element__header-container__header">Guifo Subido con Éxito</h3>
+							<button class="window-element__header-container__close-btn close-window"></button>
+						</div>
+					</div>
+				</div>
+				<img src="assets/pelicula.svg" alt="pelicula" id="movie"/>
+				<img src="assets/pelicula-modo-noc.svg" alt="pelicula" id="movie2"/>
+			</section>
+		</main>
+
+
+		<footer>
+			<div id="redes">
+				<div id="flexs">
+					<p>Compartir en:</p>
+					<ul class="social">
+						<li class="social_icon"><a href="https://www.facebook.com/"><img src="assets/icon_facebook.svg" alt="facebook" id="link1"></a></li>
+						<li class="social-icon"><a href="https://twitter.com/home"><img src="assets/icon-twitter.svg" alt="twitter" id="link2"></a></li>
+						<li class="social_icon"><a href="https://www.instagram.com/"><img src="assets/icon_instagram.svg" alt="instagram" id="link3"></a></li>
+					</ul>
+				</div>
+				<div id="copyright"><p>© GIFOS 2020 All Rights Reserved.</p></div>
+			</div>
+		</footer>
+		<div class="barra"></div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="js/JAVASCR.js"></script>
+		<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+	</body>
+</html>
